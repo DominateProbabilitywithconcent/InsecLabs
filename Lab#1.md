@@ -1,5 +1,7 @@
 # Lab#1: Buffer Overflow
 
+#Link to GitHub:https://github.com/DominateProbabilitywithconcent/InsecLabs
+
 # Task 1: Stack smashing by memory overwritten
 
 ## 1.1. bof1.c 
