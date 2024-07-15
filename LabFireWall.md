@@ -40,17 +40,16 @@
  ```
  1. Try ping to router.
  ```sh
-    ping 127.9.0.254
+     ping 10.9.0.254
  ```
  ![alt text](SecLabImages/OtoR.png)<br>
  => Ping traffic still works.<br>
 
  2. Try telnet to router.
-
-  ```sh
+ ```sh
     telnet 10.9.0.254
  ```
-    ![alt text](SecLabImages/tenetrouter.png)<br>
+ ![alt text](SecLabImages/tenetrouter.png)<br>
  => Block the access to router from outsider computer.<br>
  3. Try curl to router.
    ```sh
