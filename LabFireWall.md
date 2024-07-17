@@ -1,4 +1,4 @@
-# Link to GitHub: https://github.com/DominateProbabilitywithconcent/InsecLabs/tree/main
+## Link to GitHub: https://github.com/DominateProbabilitywithconcent/InsecLabs/tree/main
 
 # Lab FireWall submission.
 
