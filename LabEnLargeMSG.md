@@ -20,6 +20,7 @@
     openssl enc -aes-256-ecb -nosalt -in plain.txt -out ecb_encrypted.txt -K 00112233445566778899AABBCCDDEEFF00112233445566778899AABBCCDDEEFF
     ```
  - Check context of ecb_encrypted file.<br>![alt text](SecLabImages/EnLargeMSG/ecbencrypted.png)<br>
+ <img width="500" alt="Screenshot" src="[https://github.com/DominateProbabilitywithconcent/InsecLabs/blob/main/SecLabImages/EnLargeMSG/ecbencrypted.png]"><br>
  - Decrypt from ECB file.<br>
     ```sh
     openssl enc -d -aes-256-ecb -nosalt -in ecb_encrypted.txt -out ecb_decrypted.txt -K 00112233445566778899AABBCCDDEEFF00112233445566778899AABBCCDDEEFF
