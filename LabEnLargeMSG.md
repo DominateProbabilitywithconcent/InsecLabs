@@ -19,29 +19,34 @@
     ```sh
     openssl enc -aes-256-ecb -nosalt -in plain.txt -out ecb_encrypted.txt -K 00112233445566778899AABBCCDDEEFF00112233445566778899AABBCCDDEEFF
     ```
- - Check context of ecb_encrypted file.<br>![alt text](SecLabImages/EnLargeMSG/ecbencrypted.png)<br>
+ - Check context of ecb_encrypted file.<br>
+ <img width="500" alt="Screenshot" src="https://github.com/DominateProbabilitywithconcent/InsecLabs/blob/main/SecLabImages/EnLargeMSG/ecbencrypted.png?raw=true"><br>
+ <br>
  - Decrypt from ECB file.<br>
     ```sh
     openssl enc -d -aes-256-ecb -nosalt -in ecb_encrypted.txt -out ecb_decrypted.txt -K 00112233445566778899AABBCCDDEEFF00112233445566778899AABBCCDDEEFF
     ```
- - Check context of decrypted file.<br>![alt text](SecLabImages/EnLargeMSG/ecbdecrypted.png)<br>
+ - Check context of decrypted file.<br>
+ <img width="500" alt="Screenshot" src="https://github.com/DominateProbabilitywithconcent/InsecLabs/blob/main/SecLabImages/EnLargeMSG/ecbdecrypted.png?raw=true"><br>
 
  4.1.3. CBC Encryption.
  - Encrypt file plain.txt in __aes-256 bit__ in __CBC__ with key [K] and initialization vector [IV].
     ```sh
     openssl enc -aes-256-cbc -nosalt -in plain.txt -out cbc_encrypted.txt -K        00112233445566778899AABBCCDDEEFF00112233445566778899AABBCCDDEEFF -iv 0102030405060708090A0B0C0D0E0F10
     ```
- - Check context of cbc_encrypted file.<br><br>![alt text](SecLabImages/EnLargeMSG/cbcencrypted.png)<br>
+ - Check context of cbc_encrypted file.<br>
+ <img width="500" alt="Screenshot" src="https://github.com/DominateProbabilitywithconcent/InsecLabs/blob/main/SecLabImages/EnLargeMSG/cbcencrypted.png?raw=true"><br>
  - Decrypt encrypted file.
     ```sh
     openssl enc -d -aes-256-cbc -nosalt -in cbc_encrypted.txt -out cbc_decrypted.txt -K 00112233445566778899AABBCCDDEEFF00112233445566778899AABBCCDDEEFF -iv 0102030405060708090A0B0C0D0E0F10
     ```
- - Check context of decrypted file.<br>![alt text](SecLabImages/EnLargeMSG/cbcdecrypted.png)<br>
+ - Check context of decrypted file.<br>
+ <img width="500" alt="Screenshot" src="https://github.com/DominateProbabilitywithconcent/InsecLabs/blob/main/SecLabImages/EnLargeMSG/cbcdecrypted.png?raw=true"><br>
 
 
 # 4.2. Encryption Mode -ECB vs. CBC
  4.2.1. Store the bitmap file in the linux virtual computer.<br>
- ![alt text](SecLabImages/EnLargeMSG/originstore.png)<br>
+ <img width="500" alt="Screenshot" src="https://github.com/DominateProbabilitywithconcent/InsecLabs/blob/main/SecLabImages/EnLargeMSG/originstore.png?raw=true"><br>
  4.2.2. Encryption - ECB vs CBC.<br>
  - Encryption using ECB with key [K]. Named the encrypted file "originECB.bmp".
     ```sh
@@ -51,11 +56,11 @@
     ```sh
     openssl enc -aes-256-cbc -nosalt -in origin.bmp -out originCBC.bmp -K 00112233445566778899AABBCCDDEEFF00112233445566778899AABBCCDDEEFF -iv 0102030405060708090A0B0C0D0E0F10
     ```
-    <br>![alt text](SecLabImages/EnLargeMSG/Screenshot%202024-07-18%20144700.png)<br>
+    <img width="500" alt="Screenshot" src="https://github.com/DominateProbabilitywithconcent/InsecLabs/blob/main/SecLabImages/EnLargeMSG/Screenshot%202024-07-18%20144700.png?raw=true"><br>
 
  4.2.3. Create a partially encrypted file.<br>
  - origin.bmp context:<br>
- ![alt text](SecLabImages/EnLargeMSG/Screenshot%202024-07-18%20135048.png)<br>
+ <img width="750" alt="Screenshot" src="https://github.com/DominateProbabilitywithconcent/InsecLabs/blob/main/SecLabImages/EnLargeMSG/Screenshot%202024-07-18%20135048.png?raw=true"><br>
 
     4.2.3.1. ECB Mode.
     - Use these following command:
@@ -66,7 +71,7 @@
     cat header.bin encrypted_body.bin > partially_encrypted.bmp #Link header file into encrypted body file.
     ```
     - After encryption:<br>
- ![alt text](SecLabImages/EnLargeMSG/Screenshot%202024-07-18%20185236.png)<br>
+ <img width="750" alt="Screenshot" src="https://github.com/DominateProbabilitywithconcent/InsecLabs/blob/main/SecLabImages/EnLargeMSG/Screenshot%202024-07-18%20185236.png?raw=true"><br>
      => The picture comprises of shapes and elements similar to the original context, even though the color is changed. The message can still mostly be seen and undertsood by other.<br>
     4.2.3.2. CBC Mode.
     - Use these following command:
@@ -75,30 +80,32 @@
     cat header.bin encrypted_body.bin > partially_encrypted.bmp #Link header file into encrypted body file.
     ```
     - After encryption:<br>
- ![alt text](SecLabImages/EnLargeMSG/Screenshot%202024-07-18%20140657.png)<br>
+ <img width="750" alt="Screenshot" src="https://github.com/DominateProbabilitywithconcent/InsecLabs/blob/main/SecLabImages/EnLargeMSG/Screenshot%202024-07-18%20140657.png?raw=true"><br>
     => The picture comprises of random colored pixels with no noticable shapes or patterns. There are also no objects, texts or elements presented in the picture. It's impossible to get any useful information just from observing this picture with human eyes.
 # 4.3. Encryption Mode -Corrupted Cipher Test
  
  4.3.1. Creating a 64 bytes long file.<br>
- - Create a new text file named "64long.txt" which is 96 bytes (> 64 bytes).<br>
+ - Create a new text file named __"64long.txt"__ which is 96 bytes (> 64 bytes).<br>
     ```sh
     cat > 64long.txt
+    This is a 64 bytes long text file. Only purpose is for testing and other related scenarios. End
+      # [Enter] then [Ctrl + D] to save file.
    ```
 
-    ![alt text](SecLabImages/EnLargeMSG/Screenshot%202024-07-18%20173743.png)<br>
-    ![alt text](SecLabImages/EnLargeMSG/Screenshot%202024-07-18%20174229.png)<br>
+    <img width="550" alt="Screenshot" src="https://github.com/DominateProbabilitywithconcent/InsecLabs/blob/main/SecLabImages/EnLargeMSG/Screenshot%202024-07-18%20173743.png?raw=true"><br>
+    <img width="550" alt="Screenshot" src="https://github.com/DominateProbabilitywithconcent/InsecLabs/blob/main/SecLabImages/EnLargeMSG/Screenshot%202024-07-18%20174229.png?raw=true"><br>
  
  4.3.2. Encryption.<br>
- - Using EBC with key [K]. Named ECB64long.txt<br>
+ - Using EBC with key [K]. Named __ECB64long.txt__<br>
     ```sh
     openssl enc -aes-256-ecb -nosalt -in 64long.txt -out ECB64long.txt -K 00112233445566778899AABBCCDDEEFF00112233445566778899AABBCCDDEEFF
     ```
-- Using CBC with [K] and initialization vector [IV]. Named CBC64long.txt<br>
+- Using CBC with [K] and initialization vector [IV]. Named __CBC64long.txt__<br>
     ```sh
     openssl enc -aes-256-cbc -nosalt -in 64long.txt -out CBC64long.txt -K
     00112233445566778899AABBCCDDEEFF00112233445566778899AABBCCDDEEFF -iv 0102030405060708090A0B0C0D0E0F10
     ```
-    ![alt text](SecLabImages/EnLargeMSG/Screenshot%202024-07-18%20175423.png)<br>
+    <img width="500" alt="Screenshot" src="https://github.com/DominateProbabilitywithconcent/InsecLabs/blob/main/SecLabImages/EnLargeMSG/Screenshot%202024-07-18%20175423.png?raw=true"><br>
 
  4.3.3. Alter the encrypted file.<br>
  - We will modify the 5th byte of the encrypted file using dd command.
@@ -107,12 +114,12 @@
     printf '\\x01' | dd of=ECB64long.txt bs=1 seek=5 conv=notrunc #modify the 5th character of this file into "\\01'
 
     ```
-    ![alt text](SecLabImages/EnLargeMSG/Screenshot%202024-07-18%20181005.png)<br>
+    <img width="500" alt="Screenshot" src="https://github.com/DominateProbabilitywithconcent/InsecLabs/blob/main/SecLabImages/EnLargeMSG/Screenshot%202024-07-18%20181005.png?raw=true"><br>
  - Alter CBC64long.txt.
     ```sh
     printf '\\x01' | dd of=CBC64long.txt bs=1 seek=5 conv=notrunc #modify the 5th character of this file into "\\01'
     ```
-    ![alt text](SecLabImages/EnLargeMSG/Screenshot%202024-07-18%20181010.png)<br>
+    <img width="500" alt="Screenshot" src="https://github.com/DominateProbabilitywithconcent/InsecLabs/blob/main/SecLabImages/EnLargeMSG/Screenshot%202024-07-18%20181010.png?raw=true"><br>
 
  4.3.4. Decrypt and check information of decrypted files.<br>
  - Assume we decrypt the file(s) using ECB, CBC respectively. This below is the recovery expectation for each of them:
@@ -124,7 +131,7 @@
     openssl enc -d -aes-256-ecb -nosalt -in ECB64long.txt -out ecb_decrypted_64long.txt -K 00112233445566778899AABBCCDDEEFF00112233445566778899AABBCCDDEEFF
     ```
     - Result:<br>
-    ![alt text](SecLabImages/EnLargeMSG/Screenshot%202024-07-18%20182550.png)<br>
+    <img width="500" alt="Screenshot" src="https://github.com/DominateProbabilitywithconcent/InsecLabs/blob/main/SecLabImages/EnLargeMSG/Screenshot%202024-07-18%20182550.png?raw=true"><br>
     => Only the first block that contains corrupted 5th byte is altered. The rest is safe.
  - CBC decrypting process:<br>
     - Decrypt with CBC mode using key [K] and [IV]:
@@ -132,7 +139,7 @@
     openssl enc -d -aes-256-cbc -nosalt -in CBC64long.txt -out cbc_decrypted_64long.txt -K 00112233445566778899AABBCCDDEEFF00112233445566778899AABBCCDDEEFF -iv 0102030405060708090A0B0C0D0E0F10
     ```
     - Result:<br>
-    ![alt text](SecLabImages/EnLargeMSG/Screenshot%202024-07-18%20183352.png)<br>
+    <img width="500" alt="Screenshot" src="https://github.com/DominateProbabilitywithconcent/InsecLabs/blob/main/SecLabImages/EnLargeMSG/Screenshot%202024-07-18%20183352.png?raw=true"><br>
     => Whole message is corrupted.<br>
 
     **Conclusion**:<br>
